@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIA Booking Assistant</title>
+    <style>
+        /* Set a background image */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("https://res.cloudinary.com/dvbc6ctqu/image/upload/v1730430630/plane_background_qg5mny.jpg") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* Container for content */
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Headings */
+        h1 {
+            font-size: 2em;
+            margin: 0.2em 0;
+            color: #f4d03f;
+        }
+        h3 {
+            font-size: 1.2em;
+            font-weight: 400;
+            margin-bottom: 1em;
+            color: #f0f0f0;
+        }
+
+        /* Chatbot iframe styling */
+        iframe {
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            height: 430px;
+        }
+
+        /* Button styling */
+        .cta-button {
+            background-color: #f4d03f;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            font-size: 1em;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background-color: #d4ac0d;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            h3 {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PIA</h1>
+        <h3>Come fly with us</h3>
+        <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/d2ff94ea-b6b0-4081-a4cd-e0d8dc380092"></iframe>
+        <button class="cta-button">Start Chat</button>
+    </div>
+</body>
+</html>
