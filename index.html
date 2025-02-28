@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIA Booking Assistant</title>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <style>
         /* Set a background image */
         body {
@@ -28,6 +29,17 @@
             max-width: 400px;
             width: 90%;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Headings */
@@ -43,14 +55,6 @@
             color: #f0f0f0;
         }
 
-        /* Chatbot iframe styling */
-        iframe {
-            border: none;
-            border-radius: 8px;
-            width: 100%;
-            height: 430px;
-        }
-
         /* Button styling */
         .cta-button {
             background-color: #f4d03f;
@@ -62,10 +66,24 @@
             cursor: pointer;
             border-radius: 5px;
             text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
         }
 
         .cta-button:hover {
             background-color: #d4ac0d;
+            transform: scale(1.05);
+        }
+
+        /* Chatbot Styling */
+        df-messenger {
+            --df-messenger-bot-message: #f4d03f;
+            --df-messenger-button-titlebar-color: #f4d03f;
+            --df-messenger-chat-background: #222;
+            --df-messenger-font-color: #fff;
+            --df-messenger-send-icon: #f4d03f;
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
         }
 
         /* Responsive styling */
@@ -83,8 +101,20 @@
     <div class="container">
         <h1>PIA</h1>
         <h3>Come fly with us</h3>
-        <iframe height="430" width="350" src="https://bot.dialogflow.com/d2ff94ea-b6b0-4081-a4cd-e0d8dc380092"></iframe>
-        <button class="cta-button">Start Chat</button>
+        <button class="cta-button" onclick="openChat()">Start Chat</button>
     </div>
+
+    <df-messenger
+      chat-title="PIA-AGENT"
+      agent-id="d2ff94ea-b6b0-4081-a4cd-e0d8dc380092"
+      language-code="en">
+    </df-messenger>
+
+    <script>
+        function openChat() {
+            const chatElement = document.querySelector("df-messenger");
+            chatElement.shadowRoot.querySelector("button").click();
+        }
+    </script>
 </body>
 </html>
